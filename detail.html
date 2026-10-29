@@ -3,90 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodata & Detail - Project Pemrograman Web</title>
+
+    <title>Biodata Mahasiswa | WebProject</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Tambahan style khusus untuk tabel biodata agar rapi */
-        .bio-table {
-            width: 100%;
-            margin: 20px 0;
-            text-align: left;
-            border-collapse: collapse;
-        }
-        .bio-table th, .bio-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #edf2f7;
-            font-size: 0.95rem;
-        }
-        .bio-table th {
-            color: #4a5568;
-            width: 35%;
-        }
-        .bio-table td {
-            color: #2d3748;
-            font-weight: 500;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
+    <!-- Navbar -->
     <header class="navbar">
-        <div class="logo">🚀 WebProject</div>
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🚀</span>
+            <span>WebProject</span>
+        </a>
+
         <nav>
-            <a href="index.html">Beranda</a>
+            <a href="index.html" class="nav-link">
+                Beranda
+            </a>
         </nav>
     </header>
 
-    <!-- Konten Utama Halaman Detail / Biodata -->
+    <!-- Konten Utama -->
     <main class="container">
-        <section class="card" style="max-width: 550px;">
-            <h1>Biodata Mahasiswa 👨‍💻</h1>
-            <p>Berikut adalah informasi data diri dan perkuliahan:</p>
-            
-            <!-- Tabel Biodata -->
-            <table class="bio-table">
-                <tr>
-                    <th>Nama</th>
-                    <td>Wahyu Saputro</td>
-                </tr>
-                <tr>
-                    <th>NIM</th>
-                    <td>123456789</td>
-                </tr>
-                <tr>
-                    <th>Mata Kuliah</th>
-                    <td>Pemrograman Web</td>
-                </tr>
-                <tr>
-                    <th>Semester</th>
-                    <td>III</td>
-                </tr>
-            </table>
-            
-            <!-- Tombol Kembali dengan ID agar bisa dikontrol JavaScript -->
-            <div style="margin-top: 25px;">
-                <button id="back-btn" class="btn">⬅️ Kembali ke Beranda</button>
+
+        <section class="card">
+
+            <div class="profile-icon">👨‍💻</div>
+
+            <span class="badge">PROFIL MAHASISWA</span>
+
+            <h1>Biodata Mahasiswa</h1>
+
+            <p class="description">
+                Informasi data diri dan perkuliahan mahasiswa
+                dalam proyek Pemrograman Web.
+            </p>
+
+            <div class="section-title">
+                <span class="title-icon">📋</span>
+                <h2>Informasi Akademik</h2>
             </div>
+
+            <!-- Tabel Biodata -->
+            <div class="table-wrapper">
+                <table class="bio-table">
+                    <tbody>
+                        <tr>
+                            <th>
+                                <span class="field-icon">👤</span>
+                                Nama Lengkap
+                            </th>
+                            <td>Muhamad Bumi Raja Elang</td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <span class="field-icon">🪪</span>
+                                NIM
+                            </th>
+                            <td>2556402009</td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <span class="field-icon">📚</span>
+                                Mata Kuliah
+                            </th>
+                            <td>Pemrograman Web</td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <span class="field-icon">🎓</span>
+                                Semester
+                            </th>
+                            <td>
+                                <span class="semester-badge">Semester III</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tombol Kembali -->
+            <div class="button-container">
+                <button id="back-btn" class="btn" type="button">
+                    <span class="arrow">←</span>
+                    <span>Kembali ke Beranda</span>
+                </button>
+            </div>
+
         </section>
+
+        <p class="bottom-note">
+            Terus belajar, terus berkembang ✨
+        </p>
+
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>Dibuat dengan semangat oleh Wahyu &copy; 2026</p>
+    <footer class="footer">
+        <p>
+            Dibuat dengan semangat oleh
+            <strong>Wahyu</strong>
+            &copy; 2026
+        </p>
     </footer>
 
-    <!-- Script untuk Tombol Kembali -->
+    <!-- JavaScript -->
     <script>
-        const backButton = document.getElementById('back-btn');
+        const backButton = document.getElementById("back-btn");
 
-        backButton.addEventListener('click', function() {
-            // Efek interaktif sebelum kembali ke index.html
-            backButton.textContent = 'Kembali...';
-            backButton.style.backgroundColor = '#48bb78';
-            
-            setTimeout(function() {
-                window.location.href = 'index.html';
+        backButton.addEventListener("click", function () {
+            backButton.disabled = true;
+            backButton.querySelector("span:last-child").textContent =
+                "Kembali...";
+
+            backButton.classList.add("loading");
+
+            setTimeout(function () {
+                window.location.href = "index.html";
             }, 300);
         });
     </script>
